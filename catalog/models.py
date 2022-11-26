@@ -42,6 +42,7 @@ class Cover(models.Model):
 
 class Book(models.Model):
     objects = None
+    id = models.AutoField(primary_key=True, unique=True)
     title = models.CharField(max_length=100, verbose_name='Название книги', blank=False, unique=False)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, max_length=100, verbose_name='Автор', blank=False)
     yearOfRel = models.IntegerField(verbose_name='Год выпуска', blank=False,
