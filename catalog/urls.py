@@ -3,8 +3,9 @@ from . import views
 from django.urls import re_path as url
 
 urlpatterns = [
-    url(r'^books/$', views.book_list, name='book_list'),
-    url(r'^book/(?P<pk>\d+)/$', views.book_detail, name='book_detail'),
-    url(r'^authors/$', views.author_list, name='author_list'),
-    url(r'^author/(?P<pk>\d+)/$', views.author_detail, name='author_detail')
+    url(r'^books/$', views.BookList.as_view(), name='book_list'),
+    url(r'^book/(?P<pk>\d+)/$', views.BookDetail.as_view(), name='book_detail'),
+    url(r'^books/(?P<field>\w+)=(?P<property>[\w ]+)/$', views.BookFind.as_view(), name='book_find'),
+    url(r'^authors/$', views.AuthorList.as_view(), name='author_list'),
+    url(r'^author/(?P<pk>\d+)/$', views.AuthorDetail.as_view(), name='author_detail'),
 ]
