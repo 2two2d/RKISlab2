@@ -3,7 +3,8 @@ from . import views
 from django.urls import re_path as url
 
 urlpatterns = [
-    url(r'^books/$', views.BookList.as_view(), name='book_list'),
+    url(r'^books/$', views.BookList.as_view({'get':'list'}), name='book_list'),
+    url(r'^books/(?P<pk>\d+)$', views.UpdateBook.as_view(), name='book_update'),
     url(r'^book/(?P<pk>\d+)/$', views.BookDetail.as_view(), name='book_detail'),
     url(r'^books/(?P<field>\w+)=(?P<property>[\w ]+)/$', views.BookFind.as_view(), name='book_find'),
     url(r'^authors/$', views.AuthorList.as_view(), name='author_list'),

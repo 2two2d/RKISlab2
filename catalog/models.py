@@ -61,6 +61,6 @@ class Book(models.Model):
     bookFile = models.FileField(upload_to='books', verbose_name='Файл с книгой', blank=False, null=True)
 
     class Meta:
-        unique_together = ('title', 'author', 'yearOfRel', 'publisher')
+        unique_together = ('title', 'yearOfRel', 'publisher')
         verbose_name = 'Книга'
         verbose_name_plural = 'Книги'
